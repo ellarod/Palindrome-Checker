@@ -1,0 +1,85 @@
+9/16/2023
+CSE 7 Fall 23: Lab4
+Check if word is palindrome
+VSCode / JDK 11
+
+import java.util.Scanner;
+
+public class CheckPalindrome {
+    public static void main(String[]args){
+        Scanner s = new Scanner(System.in);
+  
+
+       do {
+            System.out.println("Enter a palindrome");
+            if(s.hasNextInt()){
+                //validate range and check palindrome 
+                int tempPal = s.nextInt();
+                if (tempPal >= 11 && tempPal <= 1000000){
+                    //tempPal is valid and can be checked
+                    int digit, reverse =0, temp2 = tempPal;
+
+                    ///12345
+                    while(temp2 != 0){
+                        digit =temp2 % 10;
+                        temp2/=10; 
+                        reverse = reverse *10 +digit; //shifting the digits in the rever variable 
+                    }
+
+                    //check for palindrome
+                    if (reverse == tempPal){
+                        System.out.printf("%d is a Palindrome\n", tempPal);
+                    }else{
+                        System.out.printf("%d is NOT a Palindrome\n", tempPal);
+                    }
+
+
+                    break;
+
+                }else{
+                    //rhe user typed an invalid number, reprommot
+                    System.out.println("Integer input needs to be between 11 and 1000000");
+                    s.nextLine();
+                }
+            
+
+            }else{
+                // read input as string and process
+                String word = s.nextLine();
+
+                String rev = "";
+                //for(int i= 0; i <word.length(); i= i+1){
+
+
+
+                    //itterate through string from the end
+
+                for(int i = word.length()-1; i>=0; i--){
+                    //System.out.println(word.charAt(i));
+                    rev = rev + word.charAt(i);
+                } if (word.equals(rev)){
+                    System.out.println("It is a palindrome");
+                  }else{
+                    System.out.println("Not a palindrome");
+                  }
+
+               
+
+                break;
+        
+                   // if i == //number from the end 
+
+                    //go through characters start to end left to right   for(int i = strPal.length()-1; i>=0; i--)
+
+            }
+
+
+            }while(true); //infinite loop - we will use break statements to end it
+
+
+         
+        
+
+    }
+
+}
